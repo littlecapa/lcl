@@ -1,4 +1,5 @@
 from lcl import twic, download
+import tempfile
 
 def test_twic_file():
     highest = 1560
@@ -10,11 +11,10 @@ def test_twic_file():
 
 
 def test_download():
-    download_dir = "/Users/littlecapa/Downloads/tmp"
-    unzip_dir = "/Users/littlecapa/Downloads/tmp"
-    issue_number = 1561
-    base_url = "https://theweekinchess.com/zips/"
-    twic_pattern = "twic<<number>>g.zip"
-    twic.download_twic_file(base_url, issue_number, download_dir, unzip_dir, twic_pattern)
+    with tempfile.TemporaryDirectory() as tmp_dir:
+        issue_number = 1561
+        base_url = "https://theweekinchess.com/zips/"
+        twic_pattern = "twic<<number>>g.zip"
+        twic.download_twic_file(base_url, issue_number, tmp_dir, tmp_dir, twic_pattern)
     assert 1 == 1
-    download.delete_all_files_in_directory(download_dir)
+   
