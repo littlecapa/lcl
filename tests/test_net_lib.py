@@ -1,5 +1,5 @@
 import re
-from lcl.template import get_ip
+from lcl.template import get_local_ip
 
 def is_valid_ip(ip: str) -> bool:
     """
@@ -21,4 +21,4 @@ def test_is_valid_ip():
     """
     Test the is_valid_ip function with various input cases.
     """
-    assert is_valid_ip(get_ip()) == True
+    assert is_valid_ip(get_local_ip) == True
