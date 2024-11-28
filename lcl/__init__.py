@@ -1,3 +1,3 @@
-from .template import add
+from .template import add, sub
 
-__all__ = ["add"]
+__all__ = ["add", "sub"]
