@@ -1,5 +1,5 @@
 import re
-from lcl.template import get_local_ip
+from lcl.net_lib import get_local_ip
 
 def is_valid_ip(ip: str) -> bool:
     """
