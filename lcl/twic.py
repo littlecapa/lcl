@@ -21,7 +21,7 @@ def download_twic_file(base_url, issue_number, download_dir, unzip_dir, twic_pat
         downloadZip(url=url, file_name_zip=filename_zipped)
         unzip_twic_file(filename_zipped, unzip_dir)
     except Exception as ex:
-        print ("error: ", str(ex.code))
+        print ("Download TWIC Error: ", str(ex.code))
         raise ex
     
 def exist_twic_file(issue_number, base_url, twic_pattern):

@@ -9,7 +9,6 @@ def downloadZip(url, file_name_zip, attempts=1):
     
     for attempt in range(1, attempts+1):
         try:
-            print("Try ", url)
             if attempt > 1:
                 time.sleep(10)  # 10 seconds wait time between downloads
             with requests.get(url, headers={"User-Agent": USER_AGENT}, stream=True) as response:
@@ -23,9 +22,10 @@ def downloadZip(url, file_name_zip, attempts=1):
                     for chunk in response.iter_content(chunk_size=1024*1024):  # 1MB chunks
                         out_file.write(chunk)
                 print("Success")
+                return
 
         except Exception as ex:
-            print("Error: ", str(ex))
+            print("Download Error: ", str(ex))
             raise ex
         
 def existFile(url):
